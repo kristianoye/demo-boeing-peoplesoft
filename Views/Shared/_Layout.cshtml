@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Boeing/PeopleSoft</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Honk&display=swap" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/site.css" type="text/css" />
+    <script>
+        const siteConfig = {
+            backendUrl: '@Url.Content("~")'
+        }
+    </script>
+</head>
+<body class="flex items-center">
+    <div class="mx-auto flex h-screen w-11/12 max-w-screen-xl flex-col items-center md:w-10/12 lg:w-9/12 xl:w-8/12">
+        <header class="mx-auto flex w-full items-center justify-between p-4">
+            <a class="navbar-brand honk-foo text-lg md:text-xl lg:text-3xl xl:text-4xl" asp-area="" asp-controller="Home" asp-action="Index" style="">Boeing.KristianOye.com</a>
+            <nav class="mx-3 inline rounded border border-primary">
+                <ol class="mx-3 my-3 flex list-none space-x-4">
+                    <li>
+                        <a asp-controller="Blog" asp-action="Index">Blog</a>
+                    </li>
+                    @if (User.IsInRole("admin"))
+                    {
+                        <li>
+                            <a asp-controller="Admin" asp-action="Index">Admin</a>
+                        </li>
+                    }
+                    @if (User.IsInRole("user"))
+                    {
+                        <li>
+                            <a asp-controller="Account" asp-action="Profile">Profile</a>
+                        </li>
+                    }
+                    @if (User?.Identity?.IsAuthenticated == true)
+                    {
+                        <li>
+                            <a asp-controller="Account" asp-action="Logout">Logout</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-controller="Account" asp-action="Login">Login</a>
+                        </li>
+                    }
+                </ol>
+            </nav>
+        </header>
+        <div class="w-full">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+        <footer class="border-top footer text-muted w-full">
+            <div class="container">
+                &copy; 2024 - Kristian Oye
+            </div>
+        </footer>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/main.js" asp-append-version="true"></script>
+    <div class="blog-overlay" id="blogOverlay">
+        <div class="flex">
+
+        </div>
+    </div>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

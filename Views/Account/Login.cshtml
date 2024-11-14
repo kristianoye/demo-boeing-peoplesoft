@@ -1,0 +1,33 @@
+﻿@model demo_boeing_peoplesoft.Models.UserModel
+@{
+    ViewBag.Title = "Login";
+}
+<div class="account-creation flex w-3/4 justify-center rounded">
+    <form method="post" asp-controller="Account" asp-action="Login" id="userLoginForm" class="w-1/2">
+        <div class="w-full">
+            <div asp-validation-summary="All"></div>
+            <div class="mt-2">
+                <div class="block md:inline-block md:w-1/3">
+                    <label asp-for="Username"></label>:
+                </div>
+                <div class="block md:inline-block md:w-1/3">
+                    <input type="text" class="w-10/12 border px-1 py-1 focus:border-2 lg:px-2 xl:px-3" asp-for="Username" maxlength="20" />
+                </div>
+            </div>
+            <div class="mt-2">
+                <div class="block md:inline-block md:w-1/3">
+                    <label asp-for="Password"></label>:
+                </div>
+                <div class="block md:inline-block md:w-1/3">
+                    <input type="password" class="w-10/12 border px-1 py-1 focus:border-2 lg:px-2 xl:px-3" asp-for="Password" maxlength="20" />
+                </div>
+            </div>
+            <div class="mt-5 content-center">
+                <button type="submit" class="border-2 m-4 w-1/2 rounded-lg bg-primary text-center opacity-50 hover:opacity-100 hover:bg-primary hover:cursor-pointer hover:border-2 hover:border-primaryText hover:text-primaryText-600">Log In</button>
+            </div>
+            <div>
+                Don't have an account?  Click <a asp-controller="Account" class="text-primary" asp-action="Create">here</a> to create one.
+            </div>
+        </div>
+    </form>
+</div>

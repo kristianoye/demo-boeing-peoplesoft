@@ -1,0 +1,64 @@
+﻿@model demo_boeing_peoplesoft.Models.UserSignupModel
+@{
+    ViewBag.Title = "Profile";
+}
+<div class="account-creation flex w-full flex-col items-center rounded md:w-3/4 lg:justify-between lg:flex-row">
+    <form method="post" id="uploadProfilePicture" class="w-full max-w-[310px] lg:w-1/2 lg:gap-2" enctype="multipart/form-data" asp-action="UploadImage" asp-controller="Account">
+        <div class="flex w-full flex-col items-center border">
+            <img class="border-2 max-h-[300px] max-w-[300px] rounded-full border-blue-500 hover:cursor-pointer" title="Click to change picture"  src="~/img/defaultProfilePic.jpg" id="profilePic"/>
+            <input type="file" name="uploadedFile" id="uploadedFile" style="display: none;" />
+            <div style="text-align: center">Click image to select new file</div>
+            <div class="flex w-full place-items-center content-center justify-center">
+                <button type="submit" class="border-2 m-4 w-1/2 rounded-lg bg-primary text-center opacity-50 hover:opacity-100 hover:bg-primary hover:cursor-pointer hover:border-2 hover:border-primaryText hover:text-primaryText-600 focus:border-primaryText">Upload</button>
+            </div>
+        </div>
+    </form>
+    <form method="post" id="updateUserForm" class="w-full lg:w-1/2">
+        <div>
+            <div class="inline">
+                <div>
+                    These are the fields you are allowed to update:
+                </div>
+                <div asp-validation-summary="All"></div>
+                <div class="mt-2">
+                    <div class="block md:inline-block md:w-1/3">
+                        <label asp-for="Username"></label>:
+                    </div><div class="block md:inline-block md:w-2/3">
+                        <input type="txt" class="w-10/12 border bg-gray-300 px-1 py-1 lg:px-2 xl:px-3" readonly="readonly" asp-for="Username" maxlength="20" />
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <div class="block md:inline-block md:w-1/3">
+                        <label asp-for="Password"></label>:
+                    </div><div class="block md:inline-block md:w-2/3">
+                        <input type="password" class="stdInput" asp-for="Password" maxlength="255" />
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <div class="block md:inline-block md:w-1/3">
+                        <label asp-for="Password2"></label>:
+                    </div><div class="block md:inline-block md:w-2/3">
+                        <input type="password" class="stdInput" asp-for="Password2" maxlength="255" />
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <div class="block md:inline-block md:w-1/3">
+                        <label asp-for="Email"></label>:
+                    </div><div class="block md:inline-block md:w-2/3">
+                        <input type="text" class="stdInput" asp-for="Email" maxlength="100" />
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <div class="block md:inline-block md:w-1/3">
+                        <label asp-for="Name"></label>:
+                    </div><div class="block md:inline-block md:w-2/3">
+                        <input type="text" class="stdInput" asp-for="Name" maxlength="100" />
+                    </div>
+                </div>
+                <div class="mt-5 text-center">
+                    <button class="border-2 m-4 w-1/2 rounded-lg bg-primary text-center opacity-50 hover:opacity-100 hover:bg-primary hover:cursor-pointer hover:border-2 hover:border-primaryText hover:text-primaryText-600 focus:border-primaryText">Update</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

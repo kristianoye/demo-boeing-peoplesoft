@@ -1,0 +1,66 @@
+﻿@model demo_boeing_peoplesoft.Models.UserSignupModel
+@{
+    ViewBag.Title = "Create Account";
+}
+<div class="account-creation flex w-3/4 justify-center rounded">
+    <form method="post" id="createUserForm" asp-controller="Account" asp-action="Create">
+        <div>
+            <div class="inline">
+                <div>
+                    Please fill in the following fields in order to create a user account:
+                </div>
+                <div asp-validation-summary="All" class="form-summary text-red-500"></div>
+                <div class="mt-2">
+                    <div class="block md:inline-block md:w-1/3">
+                        <label asp-for="Username"></label>:
+                    </div>
+                    <div class="block md:inline-block md:w-7/12">
+                        <input type="text" class="stdInput" asp-for="Username" maxlength="20" />
+@*                         <div>
+                            <span asp-validation-for="Username" class="text-red-500"></span>
+                        </div>
+ *@                    </div>
+                </div>
+                <div class="mt-2">
+                    <div class="block md:inline-block md:w-1/3">
+                        <label asp-for="Password"></label>:
+                    </div>
+                    <div class="block md:inline-block md:w-7/12">
+                        <input type="password" class="stdInput" asp-for="Password" maxlength="20" />
+@*                         <span asp-validation-for="Password" class="text-red-500"></span>
+ *@                    </div>
+                </div>
+                <div class="mt-2">
+                    <div class="block md:inline-block md:w-1/3">
+                        <label asp-for="Password2"></label>:
+                    </div>
+                    <div class="block md:inline-block md:w-7/12">
+                        <input type="password" class="stdInput" asp-for="Password2" maxlength="20" />
+ @*                        <span asp-validation-for="Password2" class="text-red-500"></span>
+  *@                   </div>
+                </div>
+                <div class="mt-2">
+                    <div class="block md:inline-block md:w-1/3">
+                        <label asp-for="Email"></label>:
+                    </div>
+                    <div class="block md:inline-block md:w-7/12">
+                        <input type="text" class="stdInput" asp-for="Email" maxlength="100" />
+@*                         <span asp-validation-for="Email" class="text-red-500"></span>
+ *@                    </div>
+                </div>
+                <div class="mt-2">
+                    <div class="block md:inline-block md:w-1/3">
+                        <label asp-for="Name"></label>:
+                    </div>
+                    <div class="block md:inline-block md:w-7/12">
+                        <input type="text" class="stdInput" asp-for="Name" maxlength="20" />
+ @*                        <span asp-validation-for="Name" class="text-red-500"></span>
+  *@                   </div>
+                </div>
+                <div class="mt-5">
+                    <button class="border-2 m-4 w-1/2 rounded-lg bg-primary text-center opacity-50 hover:opacity-100 hover:bg-primary hover:cursor-pointer hover:border-2 hover:border-primaryText hover:text-primaryText-600">Create</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

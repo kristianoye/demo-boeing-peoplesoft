@@ -1,0 +1,51 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.honk-foo {
+    font-family: "Honk", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "MORF" 15, "SHLN" 50;
+}
+
+@layer themes {
+    :root {
+        --color-primaryText: rgba(0, 0, 0, 1);
+        --color-primaryBackground: rgba(255, 255, 255, 1);
+        --color-primary: rgb(255, 191, 0);
+    }
+
+    .dark-theme {
+        --color-primaryText: rgba(255, 255, 255, 1);
+        --color-primaryBackground: rgba(0, 0, 0, 1);
+    }
+}
+
+body {
+    background-color: var(--color-primaryBackground);
+    color: var(--color-primaryText);
+}
+
+nav ol li:hover {
+    @apply text-primary;
+}
+
+div.blog-overlay {
+    display: none;
+}
+
+div.blog-overlay.active {
+    display: 'block';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(128, 128, 128, 0.7);
+}
+
+input[type="text"].stdInput, input[type="password"].stdInput {
+    @apply w-10/12 border px-1 py-1 focus:border-2 lg:px-2 xl:px-3;
+}
